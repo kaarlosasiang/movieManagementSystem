@@ -8,6 +8,7 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -197,8 +198,30 @@ public class Movie {
     delete method
         will delete the current object
      ===================================*/
-    public void deleteMovie(int movieId, String title, String yearReleased, String director, String actor, String plotOutline, String genre) {
+    public void deleteMovie(int movieId) {
+        try {
+            File inputFile = new File("src/moviemanagementsystem/Database/movie.txt");
+            File tempFile = new File("src/moviemanagementsystem/Database/temp.txt");
 
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                String[] lineParts = currentLine.split(",");
+                int id = Integer.parseInt(lineParts[0]);
+                if (id != movieId) {
+                    writer.write(currentLine + System.getProperty("line.separator"));
+                }
+            }
+            writer.close();
+            reader.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /*==================================

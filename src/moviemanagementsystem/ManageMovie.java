@@ -337,7 +337,43 @@ public class ManageMovie extends javax.swing.JFrame {
     }//GEN-LAST:event_updateMovBtnActionPerformed
 
     private void delMovBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delMovBtnActionPerformed
-        // TODO add your handling code here:
+
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Delete movie?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        model = (DefaultTableModel) moviesTable.getModel();
+        String id = model.getValueAt(moviesTable.getSelectedRow(), 0).toString();
+
+        if (moviesTable.getSelectedRowCount() == 1) {
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                int mId = Integer.parseInt(id);
+                String mTitle = titleField.getText();
+                String yReleased = yrField.getText();
+                String mActor = actorField.getText();
+                String mDirector = directorField.getText();
+                String pOutline = poField.getText();
+                String mGenre = genreField.getText();
+
+                movie.deleteMovie(mId);
+                model.setRowCount(0);
+                displayTable();
+                JOptionPane.showMessageDialog(null, "Deleted Successfully!");
+
+                //reset field
+                clearField();
+            } else {
+                // User clicked "No" or closed the dialog
+                System.out.println("Movie not deleted");
+            }
+
+        }
+         else {
+            //if table has no data
+            if (moviesTable.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "Table is empty!");
+                //if no row selected
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select single row to delete!");
+            }
+        }
     }//GEN-LAST:event_delMovBtnActionPerformed
 
     /**
