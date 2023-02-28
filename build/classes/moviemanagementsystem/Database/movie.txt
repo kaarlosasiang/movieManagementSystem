@@ -1,1 +1,4 @@
-1,g,g,g,g,gf,g
+1,a,b,c,d,e,f
+2,a,a,a,a,a,a
+3,b,b,b,b,b,b
+4,c,c,c,c,c,c

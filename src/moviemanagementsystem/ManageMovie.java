@@ -326,15 +326,11 @@ public class ManageMovie extends javax.swing.JFrame {
             String pOutline = poField.getText();
             String mGenre = genreField.getText();
 
-            //if current id is found, update movie
-            if (movie.isFound(mId) == true) {
-                movie.updateMovie(mId, mTitle, yReleased, mDirector, mActor, pOutline, mGenre);
-                model.setRowCount(0);
-                displayTable();
-                JOptionPane.showMessageDialog(null, "Updated Successfully!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Update failed, movie may not be found!");
-            }
+            movie.updateMovie(mId, mTitle, yReleased, mDirector, mActor, pOutline, mGenre);
+            model.setRowCount(0);
+            displayTable();
+            JOptionPane.showMessageDialog(null, "Updated Successfully!");
+
             //reset field
             clearField();
         }
