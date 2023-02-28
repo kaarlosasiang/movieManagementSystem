@@ -146,50 +146,31 @@ public class Movie {
     update method
         will update the current object
      ===================================*/
-    public void updateMovie(int editTerm, String newTitle, String newYearReleased, String newDirector, String newActor, String newPlotOutline, String newGenre) {
-        String tempFile = "src/moviemanagementsystem/Database/temp.txt";
-        String filePath = "src/moviemanagementsystem/Database/movie.txt";
-        File oldFile = new File(filePath);
-        File newFile = new File(tempFile);
-
-        int id;
-        String mTitle = "";
-        String mYearReleased = "";
-        String mDirector = "";
-        String mActor = "";
-        String mPlotOutline = "";
-        String mGenre = "";
+    public void updateMovie(int movieId, String newTitle, String newYearReleased, String newDirector, String newActor, String newPlotOutline, String newGenre) {
 
         try {
-            FileWriter fw = new FileWriter(tempFile, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter pw = new PrintWriter(bw);
-            Scanner x = new Scanner(new File(filePath));
-            x.useDelimiter("[,\n]");
+            File inputFile = new File("src/moviemanagementsystem/Database/movie.txt");
+            File tempFile = new File("src/moviemanagementsystem/Database/temp.txt");
 
-            while (x.hasNext()) {
-                id = x.nextInt();
-                mTitle = x.next();
-                mYearReleased = x.next();
-                mDirector = x.next();
-                mActor = x.next();
-                mPlotOutline = x.next();
-                mGenre = x.next();
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-                if (id == editTerm) {
-                    pw.println(id + "," + newTitle + "," + newYearReleased + "," + newDirector + "," + newActor + "," + newPlotOutline + "," + newGenre);
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                String[] lineParts = currentLine.split(",");
+                int id = Integer.parseInt(lineParts[0]);
+                if (id == movieId) {
+                    writer.write(movieId + "," + newTitle + "," + newYearReleased + "," + newDirector +  "," + newPlotOutline +  "," + newGenre + System.getProperty("line.separator"));
                 } else {
-                    pw.println(id + "," + mTitle + "," + mYearReleased + "," + mDirector + "," + mActor + "," + mPlotOutline + "," + mGenre);
+                    writer.write(currentLine + System.getProperty("line.separator"));
                 }
-                x.close();
-                pw.flush();
-                pw.close();
-                oldFile.delete();
-                File dump = new File(filePath);
-                newFile.renameTo(dump);
             }
-
-        } catch (Exception e) {
+            writer.close();
+            reader.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
