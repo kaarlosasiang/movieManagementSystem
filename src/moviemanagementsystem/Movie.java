@@ -86,7 +86,7 @@ public class Movie {
 
     /*==================================
     add movie method
-        will add the credentials to the array list
+        will add the credentials to the txt file
      ===================================*/
     public void addMovie(String title, String yearReleased, String director, String actor, String plotOutline, String genre) {
         int id;
@@ -101,7 +101,7 @@ public class Movie {
             id = 1;
             while ((line = reader.readLine()) != null) {
                 StringTokenizer stn = new StringTokenizer(line, ",");
-                String[] movies = line.split(","); // returns an array of user data from the text file
+                String[] movies = line.split(","); // returns an array of movie data from the text file
 
                 id = Integer.parseInt(movies[0]);
                 id++;
@@ -110,7 +110,7 @@ public class Movie {
                     + director + "," + actor + "," + plotOutline + ","
                     + genre);
             writer.newLine();
-            System.out.println("Member Added!");
+            System.out.println("Movie Added!");
             writer.close();
             output.close();
         } catch (Exception e) {
@@ -161,7 +161,7 @@ public class Movie {
                 String[] lineParts = currentLine.split(",");
                 int id = Integer.parseInt(lineParts[0]);
                 if (id == movieId) {
-                    writer.write(movieId + "," + newTitle + "," + newYearReleased + "," + newDirector +  "," + newPlotOutline +  "," + newGenre + System.getProperty("line.separator"));
+                    writer.write(movieId + "," + newTitle + "," + newYearReleased + "," + newDirector +  ","+ newActor +  ","  + newPlotOutline +  "," + newGenre + System.getProperty("line.separator"));
                 } else {
                     writer.write(currentLine + System.getProperty("line.separator"));
                 }

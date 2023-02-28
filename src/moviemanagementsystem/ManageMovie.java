@@ -345,12 +345,6 @@ public class ManageMovie extends javax.swing.JFrame {
         if (moviesTable.getSelectedRowCount() == 1) {
             if (dialogResult == JOptionPane.YES_OPTION) {
                 int mId = Integer.parseInt(id);
-                String mTitle = titleField.getText();
-                String yReleased = yrField.getText();
-                String mActor = actorField.getText();
-                String mDirector = directorField.getText();
-                String pOutline = poField.getText();
-                String mGenre = genreField.getText();
 
                 movie.deleteMovie(mId);
                 model.setRowCount(0);
