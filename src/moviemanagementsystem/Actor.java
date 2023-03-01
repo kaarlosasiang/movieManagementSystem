@@ -1,4 +1,4 @@
-  /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static java.nio.file.StandardOpenOption.APPEND;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.table.DefaultTableModel;
 
@@ -59,8 +60,8 @@ public class Actor {
     public String getQoutes() {
         return this.qoutes;
     }
-    
-     /*==================================
+
+    /*==================================
     add actor method
         will add the credentials to the txt file
      ===================================*/
@@ -92,7 +93,7 @@ public class Actor {
 
         }
     }
-    
+
     /*==================================
     dispaly method
         will display the current object
@@ -113,7 +114,29 @@ public class Actor {
 
         }
 
-    }/*==================================
+    }
+
+    public ArrayList<String> getActors() {
+        ArrayList<String> actors = new ArrayList<String>();
+        try {
+            Path path = Paths.get("src/moviemanagementsystem/Database/actors.txt").toAbsolutePath();
+            InputStream inputs = Files.newInputStream(path);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+
+            String _temp = null;
+
+            while ((_temp = reader.readLine()) != null) {
+                String[] actor = _temp.split(",");
+                actors.add(actor[1]);
+            }
+
+        } catch (Exception e) {
+
+        }
+        return actors;
+    }
+
+    /*==================================
     update method
         will update the current object
      ===================================*/
@@ -145,7 +168,8 @@ public class Actor {
             e.printStackTrace();
         }
     }
-     /*==================================
+
+    /*==================================
     delete method
         will delete the current object
      ===================================*/

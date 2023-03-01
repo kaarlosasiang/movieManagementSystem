@@ -4,7 +4,9 @@
  */
 package moviemanagementsystem;
 
-
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,11 +14,20 @@ package moviemanagementsystem;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    private static Movie movie = new Movie();
+    private DefaultTableModel model;
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        displayTable();
+    }
+
+    private void displayTable() {
+        model = (DefaultTableModel) RecentsTB.getModel();
+        movie.displayRecent(model);
     }
 
     /**
@@ -33,7 +44,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        RecentsTB = new javax.swing.JTable();
         newMovieBtn = new javax.swing.JButton();
         newDirectorBtn = new javax.swing.JButton();
         newActorBtn = new javax.swing.JButton();
@@ -41,6 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         manageMoviess = new javax.swing.JLabel();
         manageActors = new javax.swing.JLabel();
         manageDirectors = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,32 +94,35 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(35, 40, 47));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        RecentsTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"54, 62, 69"}
+
             },
             new String [] {
-                "Recently Added"
+                ""
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class
+            boolean[] canEdit = new boolean [] {
+                false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jTable1.setDragEnabled(true);
-        jTable1.setGridColor(new java.awt.Color(54, 62, 69));
-        jScrollPane1.setViewportView(jTable1);
+        RecentsTB.setDragEnabled(true);
+        RecentsTB.setFocusable(false);
+        RecentsTB.setGridColor(new java.awt.Color(54, 62, 69));
+        jScrollPane1.setViewportView(RecentsTB);
 
         newMovieBtn.setBackground(new java.awt.Color(132, 176, 39));
         newMovieBtn.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         newMovieBtn.setForeground(new java.awt.Color(255, 255, 255));
         newMovieBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/file-icon.png"))); // NOI18N
         newMovieBtn.setText("New Movie");
+        newMovieBtn.setBorderPainted(false);
         newMovieBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newMovieBtn.setFocusPainted(false);
         newMovieBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         newMovieBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +135,9 @@ public class MainFrame extends javax.swing.JFrame {
         newDirectorBtn.setForeground(new java.awt.Color(255, 255, 255));
         newDirectorBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/director-icon.png"))); // NOI18N
         newDirectorBtn.setText("New Director");
+        newDirectorBtn.setBorderPainted(false);
         newDirectorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newDirectorBtn.setFocusPainted(false);
         newDirectorBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         newDirectorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +150,9 @@ public class MainFrame extends javax.swing.JFrame {
         newActorBtn.setForeground(new java.awt.Color(255, 255, 255));
         newActorBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/actor-icon.png"))); // NOI18N
         newActorBtn.setText("New Actor");
+        newActorBtn.setBorderPainted(false);
         newActorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newActorBtn.setFocusPainted(false);
         newActorBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         newActorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +160,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Get Started");
 
@@ -169,35 +188,41 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Recently Added Movies");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(newMovieBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addComponent(newActorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addComponent(newDirectorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(manageMoviess, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(newMovieBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(newActorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(newDirectorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                            .addComponent(manageMoviess, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(manageActors)
-                                .addGap(37, 37, 37)
-                                .addComponent(manageDirectors, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(manageActors)
+                            .addGap(37, 37, 37)
+                            .addComponent(manageDirectors, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,8 +239,6 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(manageMoviess))
                 .addGap(0, 24, Short.MAX_VALUE))
         );
-
-        newMovieBtn.getAccessibleContext().setAccessibleParent(newActorBtn);
 
         jPanel3.setBackground(new java.awt.Color(54, 62, 69));
 
@@ -253,7 +276,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newMovieBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMovieBtnActionPerformed
-        
+
     }//GEN-LAST:event_newMovieBtnActionPerformed
 
     private void newDirectorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newDirectorBtnActionPerformed
@@ -314,21 +337,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
+
                 new MainFrame().setVisible(true);
             }
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable RecentsTB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel manageActors;
     private javax.swing.JLabel manageDirectors;
     private javax.swing.JLabel manageMoviess;

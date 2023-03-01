@@ -101,13 +101,13 @@ public class Movie {
             id = 1;
             while ((line = reader.readLine()) != null) {
                 StringTokenizer stn = new StringTokenizer(line, ",");
-                String[] movies = line.split(","); // returns an array of movie data from the text file
+                String[] movies = line.split("/"); // returns an array of movie data from the text file
 
                 id = Integer.parseInt(movies[0]);
                 id++;
             }
-            writer.write(id + "," + title + "," + yearReleased + ","
-                    + director + "," + actor + "," + plotOutline + ","
+            writer.write(id + "/" + title + "/" + yearReleased + "/"
+                    + director + "/" + actor + "/" + plotOutline + "/"
                     + genre);
             writer.newLine();
             System.out.println("Movie Added!");
@@ -133,7 +133,7 @@ public class Movie {
             Object[] mLists = reader.lines().toArray();
             for (Object data : mLists) {
                 String line = data.toString().trim();
-                String[] dataRow = line.split(",");
+                String[] dataRow = line.split("/");
                 model.addRow(dataRow);
             }
         } catch (Exception e) {
@@ -142,6 +142,23 @@ public class Movie {
 
     }
 
+    public void displayRecent(DefaultTableModel model) {
+        try {
+            Path path = Paths.get("src/moviemanagementsystem/Database/movie.txt").toAbsolutePath();
+            InputStream inputs = Files.newInputStream(path);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+
+            String _temp = null;
+            while((_temp = reader.readLine()) != null){
+                String[] recents = _temp.split("/n");
+                model.addRow(recents);
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+    
     /*==================================
     update method
         will update the current object
@@ -158,10 +175,10 @@ public class Movie {
             String currentLine;
 
             while ((currentLine = reader.readLine()) != null) {
-                String[] lineParts = currentLine.split(",");
+                String[] lineParts = currentLine.split("/");
                 int id = Integer.parseInt(lineParts[0]);
                 if (id == movieId) {
-                    writer.write(movieId + "," + newTitle + "," + newYearReleased + "," + newDirector +  ","+ newActor +  ","  + newPlotOutline +  "," + newGenre + System.getProperty("line.separator"));
+                    writer.write(movieId + "/" + newTitle + "/" + newYearReleased + "/" + newDirector +  "/"+ newActor +  "/"  + newPlotOutline +  "/" + newGenre + System.getProperty("line.separator"));
                 } else {
                     writer.write(currentLine + System.getProperty("line.separator"));
                 }
@@ -190,7 +207,7 @@ public class Movie {
             String currentLine;
 
             while ((currentLine = reader.readLine()) != null) {
-                String[] lineParts = currentLine.split(",");
+                String[] lineParts = currentLine.split("/");
                 int id = Integer.parseInt(lineParts[0]);
                 if (id != movieId) {
                     writer.write(currentLine + System.getProperty("line.separator"));
@@ -226,7 +243,7 @@ public class Movie {
             String line = reader.readLine();
             while (line != null) {
                 // Split the line into fields separated by a comma
-                String[] fields = line.split(",");
+                String[] fields = line.split("/");
 
                 // Check if the first field (the ID) matches the search ID
                 if (fields[0].equals(Integer.toString(id))) {

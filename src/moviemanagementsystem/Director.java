@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static java.nio.file.StandardOpenOption.APPEND;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,7 +28,8 @@ import javax.swing.table.DefaultTableModel;
  * @author user
  */
 public class Director {
-     private String directorId;
+
+    private String directorId;
     private String name;
     private String bDate;
     private String movies;
@@ -58,8 +60,8 @@ public class Director {
     public String getMovies() {
         return this.movies;
     }
-    
-     /*==================================
+
+    /*==================================
     add actor method
         will add the credentials to the txt file
      ===================================*/
@@ -91,7 +93,7 @@ public class Director {
 
         }
     }
-    
+
     /*==================================
     dispaly method
         will display the current object
@@ -112,7 +114,29 @@ public class Director {
 
         }
 
-    }/*==================================
+    }
+
+    public ArrayList<String> getDirectors() {
+        ArrayList<String> directors = new ArrayList<String>();
+        try {
+            Path path = Paths.get("src/moviemanagementsystem/Database/director.txt").toAbsolutePath();
+            InputStream inputs = Files.newInputStream(path);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
+
+            String _temp = null;
+
+            while ((_temp = reader.readLine()) != null) {
+                String[] director = _temp.split(",");
+                directors.add(director[1]);
+            }
+        } catch (Exception e) {
+
+        }
+        return directors;
+
+    }
+
+    /*==================================
     update method
         will update the current object
      ===================================*/
@@ -144,7 +168,8 @@ public class Director {
             e.printStackTrace();
         }
     }
-     /*==================================
+
+    /*==================================
     delete method
         will delete the current object
      ===================================*/

@@ -18,19 +18,15 @@ public class MovieManagementSystem {
      */
     static Startup start = new Startup();
     static MainFrame mf = new MainFrame();
-    private static boolean isContinue = true;
 
     public static void main(String[] args) {
         // TODO code application logic here
-        mf.setVisible(true);
 
-//        if (isContinue == true) {
-//            start.setVisible(true);
-//            Timer timer = new Timer();
-//
-//            timer.schedule(new EndStartup(), 5000, 5000);
-//           
-//        }
+        start.setVisible(true);
+        Timer timer = new Timer();
+
+        timer.schedule(new EndStartup(), 5000);
+
     }
 
     static class EndStartup extends TimerTask {
@@ -39,7 +35,6 @@ public class MovieManagementSystem {
         public void run() {
             start.dispose();
             mf.setVisible(true);
-            isContinue = false;
         }
     }
 

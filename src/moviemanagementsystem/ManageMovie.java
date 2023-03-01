@@ -22,6 +22,8 @@ public class ManageMovie extends javax.swing.JFrame {
     public ManageMovie() {
         initComponents();
         displayTable();
+        setActors();
+        setDirectors();
     }
 
     /**
@@ -42,9 +44,7 @@ public class ManageMovie extends javax.swing.JFrame {
         titleField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         yrField = new javax.swing.JTextField();
-        directorField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        actorField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         poField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -53,6 +53,8 @@ public class ManageMovie extends javax.swing.JFrame {
         addMovBtn = new javax.swing.JButton();
         updateMovBtn = new javax.swing.JButton();
         delMovBtn = new javax.swing.JButton();
+        actorField = new javax.swing.JComboBox<>();
+        directorField = new javax.swing.JComboBox<>();
         backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -122,6 +124,15 @@ public class ManageMovie extends javax.swing.JFrame {
             }
         });
 
+        actorField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Actor" }));
+        actorField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actorFieldActionPerformed(evt);
+            }
+        });
+
+        directorField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Director" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -133,45 +144,43 @@ public class ManageMovie extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(yrField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(directorField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(titleField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(yrField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                    .addComponent(titleField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                    .addComponent(directorField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(actorField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(actorField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(poField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(poField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(genreField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(38, 38, 38)
-                        .addComponent(delMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(addMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(genreField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(delMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateMovBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(actorField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(titleField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(actorField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,11 +189,12 @@ public class ManageMovie extends javax.swing.JFrame {
                     .addComponent(poField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(delMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directorField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(genreField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(directorField)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(genreField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addMovBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -253,8 +263,8 @@ public class ManageMovie extends javax.swing.JFrame {
 
         String mTitle = titleField.getText();
         String yReleased = yrField.getText();
-        String mDirector = directorField.getText();
-        String mActor = actorField.getText();
+        String mDirector = directorField.getSelectedItem().toString();
+        String mActor = actorField.getSelectedItem().toString();
         String pOutline = poField.getText();
         String mGenre = genreField.getText();
 
@@ -283,11 +293,27 @@ public class ManageMovie extends javax.swing.JFrame {
         movie.displayMovie(model);
     }
 
+    private void setActors() {
+        Actor actors = new Actor();
+        for (var actor : actors.getActors()) {
+            System.out.println(actor);
+            actorField.addItem(actor);
+        }
+    }
+
+    private void setDirectors() {
+        Director directors = new Director();
+        for (var director : directors.getDirectors()) {
+            System.out.println(director);
+            directorField.addItem(director);
+        }
+    }
+
     private void clearField() {
         titleField.setText("");
         yrField.setText("");
-        actorField.setText("");
-        directorField.setText("");
+        directorField.setSelectedIndex(0);
+        actorField.setSelectedIndex(0);
         poField.setText("");
         genreField.setText("");
 
@@ -299,17 +325,16 @@ public class ManageMovie extends javax.swing.JFrame {
         //set data to text field when selected
         String tableTitle = model.getValueAt(moviesTable.getSelectedRow(), 1).toString();
         String tableYrReleased = model.getValueAt(moviesTable.getSelectedRow(), 2).toString();
-        String tableActor = model.getValueAt(moviesTable.getSelectedRow(), 3).toString();
-        String tableDirector = model.getValueAt(moviesTable.getSelectedRow(), 4).toString();
+        String tableDirector = model.getValueAt(moviesTable.getSelectedRow(), 3).toString();
+        String tableActor = model.getValueAt(moviesTable.getSelectedRow(), 4).toString();
         String tablePlOutline = model.getValueAt(moviesTable.getSelectedRow(), 5).toString();
         String tableGenre = model.getValueAt(moviesTable.getSelectedRow(), 6).toString();
 
         //set to text field
         titleField.setText(tableTitle);
         yrField.setText(tableYrReleased);
-        actorField.setText(tableActor);
-        directorField.setText(tableDirector);
         poField.setText(tablePlOutline);
+        directorField.setSelectedItem(tableDirector);
         genreField.setText(tableGenre);
     }//GEN-LAST:event_moviesTableMouseClicked
 
@@ -321,8 +346,8 @@ public class ManageMovie extends javax.swing.JFrame {
             int mId = Integer.parseInt(id);
             String mTitle = titleField.getText();
             String yReleased = yrField.getText();
-            String mActor = actorField.getText();
-            String mDirector = directorField.getText();
+            String mActor = actorField.getSelectedItem().toString();
+            String mDirector = directorField.getSelectedItem().toString();
             String pOutline = poField.getText();
             String mGenre = genreField.getText();
 
@@ -358,8 +383,7 @@ public class ManageMovie extends javax.swing.JFrame {
                 System.out.println("Movie not deleted");
             }
 
-        }
-         else {
+        } else {
             //if table has no data
             if (moviesTable.getSelectedRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Table is empty!");
@@ -369,6 +393,10 @@ public class ManageMovie extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_delMovBtnActionPerformed
+
+    private void actorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actorFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actorFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,11 +442,11 @@ public class ManageMovie extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField actorField;
+    private javax.swing.JComboBox<String> actorField;
     private javax.swing.JButton addMovBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton delMovBtn;
-    private javax.swing.JTextField directorField;
+    private javax.swing.JComboBox<String> directorField;
     private javax.swing.JTextField genreField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
