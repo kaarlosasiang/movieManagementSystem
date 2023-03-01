@@ -4,6 +4,8 @@
  */
 package moviemanagementsystem;
 
+
+
 /**
  *
  * @author kaarlosasiang
@@ -32,13 +34,13 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        newMovieBtn = new javax.swing.JButton();
+        newDirectorBtn = new javax.swing.JButton();
+        newActorBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        manageMoviess = new javax.swing.JLabel();
+        manageActors = new javax.swing.JLabel();
+        manageDirectors = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,42 +102,42 @@ public class MainFrame extends javax.swing.JFrame {
         jTable1.setGridColor(new java.awt.Color(54, 62, 69));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setBackground(new java.awt.Color(132, 176, 39));
-        jButton1.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/file-icon.png"))); // NOI18N
-        jButton1.setText("New Movie");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        newMovieBtn.setBackground(new java.awt.Color(132, 176, 39));
+        newMovieBtn.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
+        newMovieBtn.setForeground(new java.awt.Color(255, 255, 255));
+        newMovieBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/file-icon.png"))); // NOI18N
+        newMovieBtn.setText("New Movie");
+        newMovieBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newMovieBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        newMovieBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newMovieBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(54, 62, 69));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/director-icon.png"))); // NOI18N
-        jButton2.setText("New Director");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        newDirectorBtn.setBackground(new java.awt.Color(54, 62, 69));
+        newDirectorBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        newDirectorBtn.setForeground(new java.awt.Color(255, 255, 255));
+        newDirectorBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/director-icon.png"))); // NOI18N
+        newDirectorBtn.setText("New Director");
+        newDirectorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newDirectorBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        newDirectorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                newDirectorBtnActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(54, 62, 69));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/actor-icon.png"))); // NOI18N
-        jButton3.setText("New Actor");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        newActorBtn.setBackground(new java.awt.Color(54, 62, 69));
+        newActorBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        newActorBtn.setForeground(new java.awt.Color(255, 255, 255));
+        newActorBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/actor-icon.png"))); // NOI18N
+        newActorBtn.setText("New Actor");
+        newActorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newActorBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        newActorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                newActorBtnActionPerformed(evt);
             }
         });
 
@@ -143,27 +145,27 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Get Started");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/movie-btn.png"))); // NOI18N
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageMoviess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/movie-btn.png"))); // NOI18N
+        manageMoviess.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageMoviess.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                manageMoviessMouseClicked(evt);
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/actors-btn.png"))); // NOI18N
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageActors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/actors-btn.png"))); // NOI18N
+        manageActors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageActors.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                manageActorsMouseClicked(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/director-btn.png"))); // NOI18N
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageDirectors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/moviemanagementsystem/images/director-btn.png"))); // NOI18N
+        manageDirectors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageDirectors.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                manageDirectorsMouseClicked(evt);
             }
         });
 
@@ -178,17 +180,17 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(newMovieBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(newActorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addComponent(newDirectorBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                            .addComponent(manageMoviess, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(manageActors)
                                 .addGap(37, 37, 37)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(manageDirectors, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -200,18 +202,20 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newMovieBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newDirectorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(newActorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5))
+                    .addComponent(manageDirectors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageActors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageMoviess))
                 .addGap(0, 24, Short.MAX_VALUE))
         );
+
+        newMovieBtn.getAccessibleContext().setAccessibleParent(newActorBtn);
 
         jPanel3.setBackground(new java.awt.Color(54, 62, 69));
 
@@ -248,38 +252,38 @@ public class MainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void newMovieBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMovieBtnActionPerformed
+        
+    }//GEN-LAST:event_newMovieBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void newDirectorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newDirectorBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_newDirectorBtnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void newActorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newActorBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_newActorBtnActionPerformed
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void manageDirectorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDirectorsMouseClicked
         // TODO add your handling code here:
         ManageDirector manageDirector = new ManageDirector();
         this.dispose();
         manageDirector.setVisible(true);
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_manageDirectorsMouseClicked
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void manageActorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageActorsMouseClicked
         // TODO add your handling code here:
         ManageActor manageActor = new ManageActor();
         this.dispose();
         manageActor.setVisible(true);
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_manageActorsMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void manageMoviessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMoviessMouseClicked
         // TODO add your handling code here:
         ManageMovie manageMovie = new ManageMovie();
         this.dispose();
         manageMovie.setVisible(true);
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_manageMoviessMouseClicked
 
     /**
      * @param args the command line arguments
@@ -317,19 +321,19 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel manageActors;
+    private javax.swing.JLabel manageDirectors;
+    private javax.swing.JLabel manageMoviess;
+    private javax.swing.JButton newActorBtn;
+    private javax.swing.JButton newDirectorBtn;
+    private javax.swing.JButton newMovieBtn;
     // End of variables declaration//GEN-END:variables
 }

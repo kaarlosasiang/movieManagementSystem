@@ -23,13 +23,14 @@ public class MovieManagementSystem {
     public static void main(String[] args) {
         // TODO code application logic here
         mf.setVisible(true);
+
 //        if (isContinue == true) {
 //            start.setVisible(true);
 //            Timer timer = new Timer();
 //
 //            timer.schedule(new EndStartup(), 5000, 5000);
+//           
 //        }
-        
     }
 
     static class EndStartup extends TimerTask {

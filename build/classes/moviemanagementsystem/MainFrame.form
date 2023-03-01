@@ -121,19 +121,19 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButton1" alignment="0" pref="210" max="32767" attributes="0"/>
-                                  <Component id="jButton3" alignment="0" pref="210" max="32767" attributes="0"/>
-                                  <Component id="jButton2" alignment="0" pref="210" max="32767" attributes="0"/>
+                                  <Component id="newMovieBtn" alignment="0" pref="210" max="32767" attributes="0"/>
+                                  <Component id="newActorBtn" alignment="0" pref="210" max="32767" attributes="0"/>
+                                  <Component id="newDirectorBtn" alignment="0" pref="210" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jLabel5" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="manageMoviess" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="manageActors" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="manageDirectors" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -151,18 +151,18 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="200" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="newMovieBtn" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="newDirectorBtn" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="newActorBtn" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel7" max="32767" attributes="0"/>
-                      <Component id="jLabel6" max="32767" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageDirectors" max="32767" attributes="0"/>
+                      <Component id="manageActors" max="32767" attributes="0"/>
+                      <Component id="manageMoviess" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
               </Group>
@@ -206,7 +206,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="newMovieBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="27" green="b0" red="84" type="rgb"/>
@@ -226,11 +226,16 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="newActorBtn"/>
+            </Property>
+          </AccessibilityProperties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newMovieBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="newDirectorBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="45" green="3e" red="36" type="rgb"/>
@@ -251,10 +256,10 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newDirectorBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="newActorBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="45" green="3e" red="36" type="rgb"/>
@@ -275,7 +280,7 @@
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newActorBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -289,7 +294,7 @@
             <Property name="text" type="java.lang.String" value="Get Started"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="manageMoviess">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/moviemanagementsystem/images/movie-btn.png"/>
@@ -299,10 +304,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageMoviessMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="manageActors">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/moviemanagementsystem/images/actors-btn.png"/>
@@ -312,10 +317,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel6MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageActorsMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="manageDirectors">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/moviemanagementsystem/images/director-btn.png"/>
@@ -325,7 +330,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel7MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageDirectorsMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
