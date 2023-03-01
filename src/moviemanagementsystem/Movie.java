@@ -148,10 +148,16 @@ public class Movie {
             InputStream inputs = Files.newInputStream(path);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputs));
 
-            String _temp = null;
-            while((_temp = reader.readLine()) != null){
-                String[] recents = _temp.split("/n");
-                model.addRow(recents);
+            Object[] mLists = reader.lines().toArray();
+            for (Object data : mLists) {
+                String line = data.toString().trim();
+                String[] dataRow = line.split("/");
+                String title = dataRow[1];
+                String director = dataRow[3];
+                String actor = dataRow[4];
+                String genre = dataRow[6];
+                String[] recent = new String[]{title,director,actor,genre};
+                model.addRow(recent);
             }
         } catch (Exception e) {
 

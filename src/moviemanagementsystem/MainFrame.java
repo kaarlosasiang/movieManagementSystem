@@ -99,11 +99,11 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                ""
+                "Title", "Director", "Actor", "Genre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -113,6 +113,8 @@ public class MainFrame extends javax.swing.JFrame {
         RecentsTB.setDragEnabled(true);
         RecentsTB.setFocusable(false);
         RecentsTB.setGridColor(new java.awt.Color(54, 62, 69));
+        RecentsTB.setRowHeight(26);
+        RecentsTB.setShowGrid(true);
         jScrollPane1.setViewportView(RecentsTB);
 
         newMovieBtn.setBackground(new java.awt.Color(132, 176, 39));
