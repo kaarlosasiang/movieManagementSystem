@@ -4,6 +4,7 @@
  */
 package moviemanagementsystem;
 
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
@@ -278,15 +279,22 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newMovieBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMovieBtnActionPerformed
-
+        AddMovie addMovie = new AddMovie();
+        this.dispose();
+        addMovie.setVisible(true);
     }//GEN-LAST:event_newMovieBtnActionPerformed
 
     private void newDirectorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newDirectorBtnActionPerformed
-        // TODO add your handling code here:
+        AddDirector addDirector = new AddDirector();
+        this.dispose();
+        addDirector.setVisible(true);
     }//GEN-LAST:event_newDirectorBtnActionPerformed
 
     private void newActorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newActorBtnActionPerformed
-        // TODO add your handling code here:
+        AddActor addActor = new AddActor();
+        this.dispose();
+        addActor.setVisible(true);
+        
     }//GEN-LAST:event_newActorBtnActionPerformed
 
     private void manageDirectorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDirectorsMouseClicked
