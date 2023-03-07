@@ -24,6 +24,7 @@ public class ManageMovie extends javax.swing.JFrame {
         displayTable();
         setActors();
         setDirectors();
+        setTitle("Manage Movie");
     }
 
     /**

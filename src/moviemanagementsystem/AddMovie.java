@@ -23,6 +23,7 @@ public class AddMovie extends javax.swing.JFrame {
         initComponents();
         setActors();
         setDirectors();
+        setTitle("Add Movie");
     }
 
     /**
@@ -201,6 +202,7 @@ public class AddMovie extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMovBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMovBtnActionPerformed

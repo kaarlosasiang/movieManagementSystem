@@ -22,6 +22,7 @@ public class ManageDirector extends javax.swing.JFrame {
     public ManageDirector() {
         initComponents();
         displayTable();
+        setTitle("Manage Director");
     }
 
     /**

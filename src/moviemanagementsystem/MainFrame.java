@@ -24,6 +24,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         displayTable();
+        setTitle("Movie Management System");
     }
 
     private void displayTable() {

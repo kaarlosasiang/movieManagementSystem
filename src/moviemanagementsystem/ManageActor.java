@@ -22,6 +22,7 @@ public class ManageActor extends javax.swing.JFrame {
     public ManageActor() {
         initComponents();
         displayTable();
+        setTitle("Manage Actor");
     }
 
     /**

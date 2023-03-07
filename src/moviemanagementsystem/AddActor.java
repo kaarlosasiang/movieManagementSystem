@@ -21,6 +21,7 @@ public class AddActor extends javax.swing.JFrame {
      */
     public AddActor() {
         initComponents();
+        setTitle("Add Actor");
     }
 
     /**
@@ -153,6 +154,7 @@ public class AddActor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActorBtnActionPerformed
